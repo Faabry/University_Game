@@ -1,10 +1,19 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
+import pygame as pg
+import Const as c
+from Menu import Menu
+
 
 class Game:
     def __init__(self):
-        self.scree = None
+        pg.init()
+        self.screen = pg.display.set_mode(size=(c.SCREEN_WIDHT,
+                                                c.SCREEN_HEIGHT))
 
-    def run(self, ):
-        pass
+    def run(self):
+        while True:
+            # Creating the menu
+            menu = Menu(self.screen)
+            menu.run()
+
+            
 
