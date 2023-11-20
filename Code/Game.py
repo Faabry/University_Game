@@ -1,6 +1,8 @@
 import pygame as pg
 import Const as c
 from Menu import Menu
+from Level import Level
+import sys
 
 
 class Game:
@@ -16,7 +18,15 @@ class Game:
         while True:
             # Creating the menu
             menu = Menu(self.screen)
-            menu.run()
+            menu_return = menu.run()
 
+            if menu_return in [c.MENU_OPTION[0],
+                               c.MENU_OPTION[1],
+                               c.MENU_OPTION[2]]:
+                level = Level(self.screen, "Level 1", menu_return)
+                level.run()
+            else:
+                pg.quit()
+                sys.exit()
     
-
+            
